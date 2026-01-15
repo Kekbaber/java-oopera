@@ -33,14 +33,25 @@ public class Show {
     }
 
     public void replaceActor(Actor newActor, String surname) {
+        int surnameMatchCounter = 0;
+        Actor actorToReplace = null;
+
         for (Actor actor : listOfActors) {
-            if (surname.equals(actor.getSurname())) {
-                actor.setName(newActor.getName());
-                actor.setSurname(newActor.getSurname());
-                actor.setGender(newActor.getGender());
-                actor.setHeight(newActor.getHeight());
-                break;
+            if (actor.getSurname().equals(surname)) {
+                actorToReplace = actor;
+                surnameMatchCounter++;
             }
+        }
+
+        if (surnameMatchCounter > 1) {
+            System.out.println("Не удалось заменить актёра с указанной фамилией! В спектакле участвуют несколько" +
+                    " актёров с такой же фамилией.");
+            return;
+        }
+
+        if (actorToReplace != null) {
+            listOfActors.remove(actorToReplace);
+            listOfActors.add(newActor);
         }
     }
 }

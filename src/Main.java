@@ -27,7 +27,7 @@ public class Main {
         opera.printListOfActors();
         ballet.printListOfActors();
 
-        System.out.println("Заменим в балете актера " + actor2 + " на " + actor1);
+        System.out.println("Заменим в балете актера " + actor1 + " на " + actor3);
         ballet.replaceActor(actor3, actor1.getSurname());
         ballet.printListOfActors();
 
